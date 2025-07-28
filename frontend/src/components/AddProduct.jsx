@@ -299,6 +299,10 @@ function AddProduct() {
             <option value="KTM">KTM</option>
             <option value="Husqvarna">Husqvarna</option>
         </optgroup>
+        <optgroup label="Other">
+            <option value="Other">OTHER</option>
+           
+        </optgroup>
     </select>
 
     {errors.brand && <small className="text-danger float-right">{errors.brand}</small>}

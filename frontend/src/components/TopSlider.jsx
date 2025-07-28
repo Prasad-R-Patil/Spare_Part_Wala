@@ -9,12 +9,12 @@ import './TopSlider.css';
 
 // Image imports
 import slide2 from '../images/2.jpg';
-import slide3 from '../images/3.jpg';
-import slide4 from '../images/4.jpg';
-import slide5 from '../images/5.jpg';
-import slide6 from '../images/6.jpg';
-import slide7 from '../images/7.jpg';
-import slide8 from '../images/8.jpg';
+import slide3 from '../images/3.png';
+import slide4 from '../images/4.png';
+import slide5 from '../images/5.png';
+import slide6 from '../images/6.png';
+import slide7 from '../images/7.png';
+import slide8 from '../images/8.png';
 
 const TopSlider = () => {
   const navigate = useNavigate();

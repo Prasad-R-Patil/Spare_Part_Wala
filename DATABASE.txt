@@ -1,0 +1,45 @@
+admin table 
+
+insert into admin value(1,"admin@gmail.com","admin@123","Admin");
+
+Category table
+
+
+INSERT INTO category (categoryName) VALUES
+('Engine Parts'),
+('Transmission'),
+('Brakes'),
+('Suspension'),
+('Steering'),
+('Fuel System'),
+('Exhaust System'),
+('Electrical System'),
+('Cooling System'),
+('Body Parts'),
+('Lighting & Indicators'),
+('Wheels & Tyres'),
+('Air Conditioning & Heating'),
+('Interior Accessories'),
+('Exterior Accessories'),
+('Sensors & Switches'),
+('Lubricants & Fluids'),
+('Battery & Cables');
+
+
+
+INSERT INTO category (categoryName) VALUES
+('Bike Engine Parts'),
+('Bike Brake System'),
+('Bike Suspension & Forks'),
+('Bike Wheels & Tyres'),
+('Bike Exhaust System'),
+('Bike Chain & Sprockets'),
+('Bike Handlebar & Controls'),
+('Bike Lighting'),
+('Bike Electricals'),
+('Bike Body & Panels'),
+('Bike Seats'),
+('Bike Mirrors'),
+('Bike Accessories'),
+('Bike Battery'),
+('Bike Lubricants & Oil');
