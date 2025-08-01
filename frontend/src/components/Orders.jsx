@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function Orders(){
     const [orders,setOrders]=useState([])
@@ -10,7 +11,7 @@ function Orders(){
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        axios.get("http://localhost:8080/api/orders")
+        axios.get(`${API_BASE}/api/orders`)
         .then(resp=>{
             console.log(resp.data)
             setOrders(resp.data.data)
@@ -28,7 +29,7 @@ function Orders(){
     }
 
     const showDetails=(orderId)=>{
-        axios.get("http://localhost:8080/api/orders/"+orderId)
+        axios.get(`${API_BASE}/api/orders/`+orderId)
         .then(resp=>{
             console.log(resp.data)
             setDetails(resp.data.data.details)

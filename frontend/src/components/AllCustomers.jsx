@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function AllCustomers(){
 
@@ -20,7 +21,7 @@ function AllCustomers(){
     }
 
     useEffect(()=>{
-        axios.get("http://localhost:8080/api/customers")
+        axios.get(`${API_BASE}/api/customers`)
         .then(resp=>{
             setCustomers(resp.data.data)
             console.log(customers)

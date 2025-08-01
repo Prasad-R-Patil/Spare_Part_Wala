@@ -7,6 +7,7 @@ import RoleNavbar from "./RoleNavbar"
 import { useSelector } from "react-redux";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { API_BASE } from "../config";
 import {
     MDBContainer,
     MDBNavbar,
@@ -24,7 +25,7 @@ function NavBar() {
     useEffect(() => {
         console.log("Welcome to NavBar bro");
 
-        axios.get("http://localhost:8080/api/category/getallcategory")
+        axios.get(`${API_BASE}/api/category/getallcategory`)
             .then(resp => {
                 console.log(resp);
                 setCategory(resp.data);

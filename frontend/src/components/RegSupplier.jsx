@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import swal from 'sweetalert';
+import { API_BASE } from "../config";
 
 function RegSupplier() {
 
@@ -42,7 +43,7 @@ function RegSupplier() {
         if (Object.keys(errors).length === 0 && submitted) {
             console.log(seller)
 
-            axios.post("http://localhost:8080/api/sellers", seller)
+            axios.post(`${API_BASE}/api/sellers`, seller)
                 .then(resp => {
                     console.log(resp)
                     swal({

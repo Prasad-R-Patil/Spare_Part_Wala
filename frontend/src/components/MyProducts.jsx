@@ -409,6 +409,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function MyProducts() {
   const sellerId = sessionStorage.getItem("id");
@@ -422,7 +423,7 @@ function MyProducts() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/products?sellerId=${sellerId}`)
+      .get(`${API_BASE}/api/products?sellerId=${sellerId}`)
       .then((resp) => {
         console.log(resp.data);
         setProducts(resp.data.data);
@@ -444,11 +445,11 @@ function MyProducts() {
     let resp = window.confirm("Are you sure to delete this product?");
     if (resp) {
       axios
-        .delete(`http://localhost:8080/api/products/${productId}`)
+        .delete(`${API_BASE}/api/products/${productId}`)
         .then((resp) => {
           alert("Product deleted successfully");
           axios
-            .get(`http://localhost:8080/api/products?sellerId=${sellerId}`)
+            .get(`${API_BASE}/api/products?sellerId=${sellerId}`)
             .then((resp) => {
               console.log(resp.data);
               setProducts(resp.data.data);
@@ -617,7 +618,7 @@ function MyProducts() {
                   <td>
                     <img
                       width="100"
-                      src={"http://localhost:8080/" + x.photo}
+                      src={`${API_BASE}` + x.photo}
                       className="img-thumnail float-left text-center"
                       alt={x.pname}
                     />

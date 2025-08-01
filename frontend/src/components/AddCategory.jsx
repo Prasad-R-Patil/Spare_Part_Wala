@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import swal from 'sweetalert';
 // import catPhoto from '../images/category.png'
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function AddCategory() {
 
@@ -24,7 +25,7 @@ function AddCategory() {
         event.preventDefault()
         console.log(category)
 
-        axios.post("http://localhost:8080/api/category/addcategory", category)
+        axios.post(`${API_BASE}/api/category/addcategory`, category)
             .then(resp => {
                 console.log(resp)
                 swal({

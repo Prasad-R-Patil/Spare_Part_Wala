@@ -1,10 +1,11 @@
 package com.app.jwt;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
 
 /*
 package com.woodworks.project.jwt;
@@ -94,17 +95,19 @@ public class SecurityConfig {
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
-    private final String uri = "/api/*";
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable())
+            .headers(headers -> headers.httpStrictTransportSecurity(hsts -> hsts.disable()))
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/**").permitAll()
+                .anyRequest().permitAll()
+            );
 
-    @Override
-    public void configure(final HttpSecurity http) throws Exception {
-        http.csrf().disable();
-        http.headers().httpStrictTransportSecurity().disable();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        // Authorize sub-folders permissions
-        http.antMatcher(uri).authorizeRequests().anyRequest().permitAll();
+        return http.build();
     }
 }

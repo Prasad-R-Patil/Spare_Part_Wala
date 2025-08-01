@@ -5,6 +5,7 @@ import uservalidation from "../uservalidation";
 import { useDispatch } from "react-redux";
 import validator from 'validator'
 import { useNavigate } from "react-router-dom";
+import { API_BASE } from "../config";
 
 function SellerProfile() {
     const [uname, setUname] = useState(sessionStorage.getItem("uname"))
@@ -22,7 +23,7 @@ function SellerProfile() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get("http://localhost:8080/api/sellers/" + id)
+        axios.get(`${API_BASE}/api/sellers/` + id)
             .then(resp => {
                 console.log(resp.data.data)
                 setUser(resp.data.data)
@@ -90,7 +91,7 @@ function SellerProfile() {
 
         console.log(user);
         if (Object.keys(errors).length === 0) {
-            axios.put("http://localhost:8080/api/customers/" + id, user)
+            axios.put(`${API_BASE}/api/customers/` + id, user)
                 .then(resp => {
                     swal({
                         title: "Success!",

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { API_BASE } from "../config";
 
 function ViewCart(){
     const state=useSelector((state)=>state);
@@ -67,7 +68,7 @@ function ViewCart(){
             'customerId':sessionStorage.getItem('id')
         } 
         console.log(data) 
-        axios.post("http://localhost:8080/api/orders",data)
+        axios.post(`${API_BASE}/api/orders`,data)
         .then(resp=>{
             console.log(resp)
             dispatch({type:'Clear'});
@@ -103,7 +104,7 @@ function ViewCart(){
                         <tr key={item.productId} className="text-center">
                             <td>{item.productId}</td>
                             <td>
-                                <img className="mr-2 float-left" src={"http://localhost:8080/"+item.photo} width="100" />
+                                <img className="mr-2 float-left" src={`${API_BASE}/`+item.photo} width="100" />
                                 {item.pname}
                             </td>
                             <td>&#8377; {item.price}</td>

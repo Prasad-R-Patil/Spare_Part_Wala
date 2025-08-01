@@ -106,6 +106,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function MyOrders({ customerId }) {
   const [orders, setOrders] = useState([]);
@@ -115,7 +116,7 @@ function MyOrders({ customerId }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/orders?custid=${customerId}`)
+      .get(`${API_BASE}/api/orders?custid=${customerId}`)
       .then((resp) => {
         console.log(resp.data);
         setOrders(resp.data.data);
@@ -123,7 +124,7 @@ function MyOrders({ customerId }) {
   }, [customerId]);
 
   const showDetails = (orderId) => {
-    axios.get(`http://localhost:8080/api/orders/${orderId}`).then((resp) => {
+    axios.get(`${API_BASE}/api/orders/${orderId}`).then((resp) => {
       console.log(resp.data);
       setDetails(resp.data.data.details);
     });

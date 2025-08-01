@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
 import validator from 'validator'
+import { API_BASE } from "../config";
 
 const Feedback = () => {
   const uname = useState(sessionStorage.getItem("uname"))
@@ -48,7 +49,7 @@ const Feedback = () => {
     
 
     if (Object.keys(errors).length === 0) {
-      axios.post("http://localhost:8080/api/customers/feedback/" + { id }, user)
+      axios.post(`${API_BASE}/api/customers/feedback/` + { id }, user)
         .then(resp => {
           console.log("Feedback Submitted");
           swal({

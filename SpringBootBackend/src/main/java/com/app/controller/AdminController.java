@@ -1,10 +1,7 @@
 package com.app.controller;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +18,7 @@ import com.app.models.Response;
 import com.app.service.AdminService;
 import com.app.service.EmailService;
 import com.app.service.OtpGenerator;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 
 @CrossOrigin
 @RestController

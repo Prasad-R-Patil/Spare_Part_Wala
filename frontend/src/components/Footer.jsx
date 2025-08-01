@@ -1,4 +1,5 @@
 import React from 'react';
+import { API_BASE } from '../config';
 import {
   MDBFooter,
   MDBContainer,
@@ -157,7 +158,7 @@ export default function Footer() {
      <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
   © 2025 SparePartWala.com — Your One-Stop Auto Parts Solution
     <br />
-  <a className='text-white ms-2' href='http://localhost:3000/'>
+  <a className='text-white ms-2' href= {API_BASE}>
     Visit Us
   </a>
 </div>

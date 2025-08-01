@@ -5,7 +5,7 @@ import productvalidation from "./productvalidation";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import swal from 'sweetalert';
-
+import { API_BASE } from "../config";
 
 function EditProduct() {
     console.log("Edit product page")
@@ -58,7 +58,7 @@ function EditProduct() {
     useEffect(() => {
         console.log(errors)
 
-        axios.get("http://localhost:8080/api/category/getallcategory")
+        axios.get(`${API_BASE}/api/category/getallcategory`)
             .then(resp => {
                 console.log(resp);
                 setCategory(resp.data);
@@ -67,7 +67,7 @@ function EditProduct() {
                 toast.error("Category unable to fetch")
             }, [])
 
-        axios.get("http://localhost:8080/api/products/" + productId)
+        axios.get(`${API_BASE}/api/products/` + productId)
             .then(resp => {
                 console.log(resp.data.data)
                 setProduct(resp.data.data)
@@ -75,7 +75,7 @@ function EditProduct() {
 
         if (Object.keys(errors).length === 0 && submitted ) {
             console.log(product)
-            axios.put("http://localhost:8080/api/products/" + productId, product)
+            axios.put(`${API_BASE}/api/products/` + productId, product)
                 .then(resp => {
                     let result = resp.data.data;
                     console.log(result)

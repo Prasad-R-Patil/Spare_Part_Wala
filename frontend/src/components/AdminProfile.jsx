@@ -3,6 +3,7 @@ import { useState } from "react"
 import swal from 'sweetalert';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function AdminProfile() {
     const email = sessionStorage.getItem("email")
@@ -34,7 +35,7 @@ function AdminProfile() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:8080/api/admin", user)
+        axios.post(`${API_BASE}/api/admin`, user)
             .then(resp => {
                 console.log(resp)
                 swal({

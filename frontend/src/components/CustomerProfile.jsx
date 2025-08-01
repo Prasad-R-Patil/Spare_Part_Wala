@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import uservalidation from "../uservalidation";
 import { useDispatch } from "react-redux";
 import validator from 'validator'
-
+import { API_BASE } from "../config";
 function CustomerProfile() {
     const [uname, setUname] = useState(sessionStorage.getItem("uname"))
     const userid = sessionStorage.getItem("email")
@@ -24,7 +24,7 @@ function CustomerProfile() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        axios.get("http://localhost:8080/api/customers/" + id)
+        axios.get(`${API_BASE}/api/customers/` + id)
             .then(resp => {
                 console.log(resp.data.data)
                 setUser(resp.data.data)
@@ -91,7 +91,7 @@ function CustomerProfile() {
 
         console.log(user);
         if (Object.keys(errors).length === 0) {
-            axios.put("http://localhost:8080/api/customers/" + id, user)
+            axios.put(`${API_BASE}/api/customers/` + id, user)
                 .then(resp => {
                     swal({
                         title: "Success!",

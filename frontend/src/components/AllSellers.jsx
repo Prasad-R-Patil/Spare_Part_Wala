@@ -132,6 +132,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function AllSellers() {
   const [sellers, setSellers] = useState([]);
@@ -152,7 +153,7 @@ function AllSellers() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/sellers").then((resp) => {
+    axios.get(`${API_BASE}/api/sellers`).then((resp) => {
       setSellers(resp.data.data);
     });
   }, []);
@@ -160,8 +161,8 @@ function AllSellers() {
   const deleteSeller = (id) => {
     let response = window.confirm("Are you sure you want to delete this supplier?");
     if (response) {
-      axios.delete(`http://localhost:8080/api/sellers/${id}`).then(() => {
-        axios.get("http://localhost:8080/api/sellers").then((resp) => {
+      axios.delete(`${API_BASE}/api/sellers/${id}`).then(() => {
+        axios.get(`${API_BASE}/api/sellers`).then((resp) => {
           setSellers(resp.data.data);
         });
       });

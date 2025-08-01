@@ -3,8 +3,6 @@ package com.app.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.entities.Customer;
 import com.app.entities.Seller;
-import com.app.models.CustomerDto;
 import com.app.models.LoginDTO;
 import com.app.models.Response;
 import com.app.models.SellerDto;
@@ -28,6 +24,7 @@ import com.app.service.EmailService;
 import com.app.service.OtpGenerator;
 import com.app.service.ProductService;
 import com.app.service.SellerService;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 
 
 @CrossOrigin

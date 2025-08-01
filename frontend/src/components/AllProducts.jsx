@@ -8,6 +8,7 @@ import queryString from "query-string";
 import TopSlider from "./TopSlider";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
+import { API_BASE } from "../config";
 
 function AllProduct() {
     const [products, setProducts] = useState([])
@@ -38,7 +39,7 @@ function AllProduct() {
     }
 
     const loadDataFromServer = (page = 0, pagesize = 8) => {
-        axios.get("http://localhost:8080/api/products/paginated?page=" + page + "&pagesize=" + pagesize)
+        axios.get(`${API_BASE}/api/products/paginated?page=` + page + "&pagesize=" + pagesize)
             .then(resp => {
                 console.log(resp.data.data.total)
                 setProducts(resp.data.data.plist)
@@ -55,7 +56,7 @@ function AllProduct() {
         console.log(pcat.cat)
         if (pcat.cat !== undefined ) {
             console.log("useEffect if part")
-            axios.get("http://localhost:8080/api/products/category?cat=" + pcat.cat)
+            axios.get(`${API_BASE}/api/products/category?cat=` + pcat.cat)
                 .then(resp => {
                     console.log(resp.data)
                     setProducts(resp.data.data)

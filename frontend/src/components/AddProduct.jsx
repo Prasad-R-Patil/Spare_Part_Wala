@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import productvalidation from "./productvalidation";
 import swal from 'sweetalert';
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function AddProduct() {
 
@@ -53,7 +54,7 @@ function AddProduct() {
 
     useEffect(() => {
 
-        axios.get("http://localhost:8080/api/category/getallcategory")
+        axios.get(`${API_BASE}/api/category/getallcategory`)
             .then(resp => {
                 console.log(resp);
                 setCategory(resp.data);
@@ -72,7 +73,7 @@ function AddProduct() {
             formData.append("brand", product.brand)
             formData.append("sellerId", sellerid)
             console.log(product)
-            axios.post("http://localhost:8080/api/products", formData)
+            axios.post(`${API_BASE}/api/products`, formData)
                 .then(resp => {
                     let result = resp.data.data;
                     console.log(result)

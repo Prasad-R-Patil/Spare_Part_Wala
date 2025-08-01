@@ -3,8 +3,6 @@ package com.app.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +26,7 @@ import com.app.service.CustomerService;
 import com.app.service.EmailService;
 import com.app.service.FeedbackService;
 import com.app.service.OtpGenerator;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 
 
 

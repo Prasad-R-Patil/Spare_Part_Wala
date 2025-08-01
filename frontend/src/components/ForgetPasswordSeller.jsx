@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import swal from 'sweetalert';
 import validator from 'validator'
 import EmailValidation from "./EmailValidation";
+import { API_BASE } from "../config";
 
 function ForgetPasswordCustomer() {
     const [user, setUser] = useState({
@@ -60,7 +61,7 @@ function ForgetPasswordCustomer() {
         console.log(errors)
         if (Object.keys(errors).length === 0 && submitted) {
             console.log(user)
-            axios.post("http://localhost:8080/api/sellers/forgetpassword", user)
+            axios.post(`${API_BASE}/api/sellers/forgetpassword`, user)
                 .then(resp => {
                     let result = resp.data.data;
                     swal({

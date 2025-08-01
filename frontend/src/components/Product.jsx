@@ -1,4 +1,4 @@
-
+import { API_BASE } from "../config";
 function Product(props) {
     const { x, showModal } = props
     return (
@@ -8,7 +8,7 @@ function Product(props) {
                     <h5 className="text-white">{x.pname}</h5>
                 </div>
                 <div className="card-body py-1">
-                    <img style={{ width: "90%", height: "200px", marginBottom: "10px" }} src={"http://localhost:8080/" + x.photo} className="img-thumnail" />
+                    <img style={{ width: "90%", height: "200px", marginBottom: "10px" }} src={`${API_BASE}/` + x.photo} className="img-thumnail" />
                     <h6 className="float-left">Brand :{x.brand}</h6>
                     <h6 className="float-right">Price: &#8377; {x.price}</h6>
                 </div>

@@ -2,13 +2,14 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { API_BASE } from "../config";
 
 function ViewFeedback() {
     const [feedback, setFeedback] = useState([])
     const dispatch = useDispatch()
 
     useEffect(() => {
-        axios.get("http://localhost:8080/api/customers/viewfeedback")
+        axios.get(`${API_BASE}/api/customers/viewfeedback`)
             .then(resp => {
                 console.log(resp.data)
                 setFeedback(resp.data)

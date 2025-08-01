@@ -8,6 +8,7 @@ import { InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import swal from 'sweetalert';
 import admin from "../images/admin.png";
+import { API_BASE } from "../config";
 function RegCustomer() {
 
     const [customer, setCustomer] = useState({
@@ -49,7 +50,7 @@ function RegCustomer() {
             console.log(customer)
 
 
-            axios.post("http://localhost:8080/api/customers", customer)
+            axios.post(`${API_BASE}/api/customers`, customer)
                 .then(resp => {
                     console.log(resp)
                     swal({

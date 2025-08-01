@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import user1 from "../images/user1.jpg";
 import swal from 'sweetalert';
 import EmailValidation from "./EmailValidation";
+import { API_BASE } from "../config";
 
 function ForgetPasswordAdmin() {
     const [user, setUser] = useState({
@@ -54,7 +55,7 @@ function ForgetPasswordAdmin() {
         console.log(errors)
         if (Object.keys(errors).length === 0 && submitted) {
             console.log(user)
-            axios.post("http://localhost:8080/api/admin/forgetpassword", user)
+            axios.post(`${API_BASE}/api/admin/forgetpassword`, user)
                 .then(resp => {
                     let result = resp.data.data;
                     swal({
