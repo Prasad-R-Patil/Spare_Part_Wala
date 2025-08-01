@@ -1,8 +1,6 @@
 # SparePartWala - Spare Parts Inventory Management System 🚗🔧
 
-![SparePartWala Logo](https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/external-car-service-car-service-flaticons-lineal-color-flat-icons.png)
 
-![Spare Parts Icon](https://img.icons8.com/external-flat-juicy-fish/512/external-engine-car-repair-flat-flat-juicy-fish.png)
 
 ## 📌 Overview
 
